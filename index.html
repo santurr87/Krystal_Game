@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Krystal Collector</title>
+  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+  
+  <style>
+    
+    body {
+      background-image: url("http://68.media.tumblr.com/94ec98e7ea427e1dd8e992d14fe0599b/tumblr_nmxep3DzeO1qkz7r0o1_500.jpg");
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 94px;
+      color: white;
+    }
+
+    .instructions, .numToReach, .WinsAndLosses, .userTotal{
+      color: white;
+      font-size: 21px;
+    }
+
+  </style>
+
+
+  <div class="header">
+    <h1>Krystal Collector</h1>
+  </div><br><br>
+  <div class="instructions">
+    <h3>How to play!</h3>
+    </br>
+      <p>You will be given a random number at the start of the game.<span>"Number to Reach"</span></p><br><br>
+      <p>There are four crystals below. By cpcking on a crystal, you will add a specific amount of points to your total score.</p><br><br>
+      
+      <p>You win the game by matching your total score to the random number, you lose the game if your total score goes above the random number.</p><br><br>
+      <p>The value of each crystal is hidden from you until you cpck on it.</p><br><br>
+      <p>Each time when the game starts, the game will change the values of each crystal.</p><br><br>
+  </div>
+  <div class="numToReach">
+    <h2>Number to Reach:
+      <span id= "randomNumber"></span>
+    </h2>
+  </div>
+  <div class="WinsAndLosses">
+    <h2>Wins:
+      <span id= "numWins"></span>
+      </br>
+      Losses: 
+      <span id= "numLosses"></span>
+    </h2>
+  </div>
+  <div class="gems">
+    <img src="assets/images/blue.png" class=gemImage id="one" alt="Blue Gem">
+    <img src="assets/images/emerald.png" class=gemImage id="two" alt="Emerald Gem">
+    <img src="assets/images/red.png" class=gemImage id= "three" alt="Red Gem">
+    <img src="assets/images/yellow.png" class=gemImage id= "four" alt="Yellow Gem">
+  </div>
+  <div class="userTotal">
+    <h2>Your total score is:
+      <span id="finalTotal"></span>
+    </h2>
+  </div>
+  
+
+  <script>
+  $(document).ready(function(){
+  var Random=Math.floor(Math.random()*101+19)
+  
+  // Selects a random number to be shown at the start of the game
+  // Number should be should be between 19 - 120
+  //
+  $("#randomNumber").text(Random);
+  
+  // Appending random number to the randomNumber id in the html doc
+  //
+  var num1= Math.floor(Math.random()*11+1)
+  var num2= Math.floor(Math.random()*11+1)
+  var num3= Math.floor(Math.random()*11+1)
+  var num4= Math.floor(Math.random()*11+1)
+  // Setting up random numbers for each jewel
+  // Random number has to be between 1 - 12
+  // 
+  var userTotal= 0; 
+  var wins= 0;
+  var losses = 0;
+  
+//Set variables for wins and losses using id's from above
+$("#numWins").text(wins);
+$("#numLosses").text(losses);
+
+//reset game
+function reset(){
+      Random=Math.floor(Math.random()*101;
+      $("#randomNumber").text(Random);
+      userTotal= 0;
+
+//add wins to user's score
+function winner(){
+alert("winner!");
+  wins++; 
+  $("#numberWins").text(wins);
+  reset();
+}
+
+//add losses to user's score
+function loss(){
+alert ("You lose!");
+  losses++;
+  $("#numberLosses").text(losses);
+  reset()
+}
+
+//set up click function for each jewel
+  $("#one").on ("click", function(){
+    userTotal = userTotal + num1;
+    $("#finalTotal").text(userTotal); 
+
+//set win and loss conditions
+        if (userTotal == Random){
+          winner();
+        }
+        else if ( userTotal > Random){
+          loss();
+        }   
+  })  
+  $("#two").on ("click", function(){
+    userTotal = userTotal + num2;
+    $('#finalTotal').text(userTotal); 
+        if (userTotal == Random){
+          winner();
+        }
+        else if ( userTotal > Random){
+          loss();
+        } 
+  })  
+  $("#three").on ("click", function(){
+    userTotal = userTotal + num3;
+    $("#finalTotal").text(userTotal);
+
+//set win/lose conditions
+        if (userTotal == Random){
+          winner();
+        }
+        else if (userTotal > Random){
+          loss();
+        } 
+  })  
+  $("#four").on ("click", function(){
+    userTotal = userTotal + num4;
+    $("#finalTotal").text(userTotal); 
+      
+      if (userTotal == Random){
+          winner();
+        }
+        else if (userTotal > Random){
+          loss();
+        }
+  });   
+}); 
+
+
+
+  </script>
+</body>
+</html>

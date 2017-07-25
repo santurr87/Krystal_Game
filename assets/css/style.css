@@ -1,0 +1,14 @@
+body {
+      background-image: url("http://68.media.tumblr.com/94ec98e7ea427e1dd8e992d14fe0599b/tumblr_nmxep3DzeO1qkz7r0o1_500.jpg");
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 94px;
+      color: white;
+    }
+
+    .instructions, .numToReach, .WinsAndLosses, .userTotal{
+      color: white;
+      font-size: 21px;
+    }
